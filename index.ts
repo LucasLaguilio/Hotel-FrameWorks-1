@@ -26,7 +26,7 @@ servidor.get("/usuarios", async (request: FastifyRequest, reply: FastifyReply) =
             database: 'ServerDatabase',
             port: 3306
         });
-        const results = await conn.query('SELECT * FROM usuarios');
+        const results = await conn.query('SELECT * FROM users');
         const [dados, Tabela] = results
         reply.status(200).send(dados)
 
