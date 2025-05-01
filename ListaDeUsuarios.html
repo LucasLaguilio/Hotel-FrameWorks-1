@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista De Usuarios</title>
+</head>
+<body>
+    <a href = "Cadastro.html"> Cadastrar um usuario </a>
+    <h1> Lista de Usuarios Cadastrados </h1>
+    <ul id="userlist"></ul>
+
+    <script> 
+     async function buscadedados(){
+        const resposta = await fetch('http://localhost:8080/usuarios')
+        if (resposta.status === 200 ) {
+            const dados = await resposta.json()
+            const lista = document.getElementById('userlist')
+            for (let i = 0; i < dados.length; i++) {
+                const objeto = dados[i];
+                const listadosusuarioscriados = document.createElement('li')
+                listadosusuarioscriados.innerText = `${objeto.id} ${objeto.nome}`
+                lista.appendChild(listadosusuarioscriados)
+            }
+        } else {
+            if(resposta.status === 400) {
+                const dados = await resposta.json()
+                alert(dados.mensagem)
+            }else{
+                alert("Erro Desconhecido.")
+            }
+        }
+     }   
+     buscadedados()
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Usuarios</title>
+</head>
+<body>
+    <form onsubmit="event.preventDefault(); formulario()"> 
+    <input type="text" id="id" name="id" placeholder="id">
+    <input type="text" id="name" name="name" placeholder="Nome">
+    <input type="submit" value="Cadastrar">
+    <input type="reset" value="Limpar">
+    </form> 
+    <script> 
+      async function formulario(){
+        const idInput = document.getElementById('id');
+        const nomeInput = document.getElementById('name');
+        const id = idInput.value;
+        const name = nomeInput.value;
+        const usuario = {
+            id: id,
+            nome: name
+        };
+        console.log(usuario);
+        try {
+            const resposta = await fetch('http://localhost:8080/usuarios', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(usuario)
+        });
+        if (resposta.status  === 200) {
+            alert("Usario foi cadastrado com sucesso.")
+        }
+     
+        if (resposta.status === 400) {
+            const dados = await resposta.json();
+            alert("Erro: " + dados.mensagem);
+        }
+        if (resposta.status === 401) {
+            alert("Erro: Usuario não foi cadastrado.")
+        }
+        if (resposta.status === 404) {
+            alert("Erro: Usuario não foi excluido.")
+        }
+    }catch (erro) {
+        console.log(erro);
+        alert("Erro ao cadastrar usuario.");
+      }
+    }
+    </script> 
+</body>
+</html>
