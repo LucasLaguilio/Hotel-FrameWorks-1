@@ -1,0 +1,36 @@
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+input[id="id"], [id="nome"] , [id=idade] {
+    width: 300px;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[id="cadastrar"] {
+    width: 100px;
+    padding: 10px;
+    margin: 10px;
+    border: solid 1px black ;
+    border-radius: 5px;
+    background-color: #00ff37;
+    color: rgb(3, 3, 3);
+    cursor: pointer;
+}
+
+input[id='reset'] {
+    width: 100px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: #ff2020;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+}

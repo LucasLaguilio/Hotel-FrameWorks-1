@@ -4,23 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar Usuarios</title>
+    <link rel="stylesheet" href="Cadastro.css">
 </head>
 <body>
     <form onsubmit="event.preventDefault(); formulario()"> 
-    <input type="text" id="id" name="id" placeholder="id">
-    <input type="text" id="name" name="name" placeholder="Nome">
-    <input type="submit" value="Cadastrar">
-    <input type="reset" value="Limpar">
+    <input type="text" id="id" name="id" placeholder="Id" >
+    <input type="text" id="nome" name="nome" placeholder="Nome">
+    <input type = "number" id="idade" name="idade" placeholder="Idade">
+    <input type="submit" id="cadastrar" value="Cadastrar">
+    <input type="reset" id="reset" value="Limpar">
     </form> 
     <script> 
       async function formulario(){
         const idInput = document.getElementById('id');
-        const nomeInput = document.getElementById('name');
+        const nomeInput = document.getElementById('nome');
+        const idadeInput = document.getElementById("idade")
         const id = idInput.value;
-        const name = nomeInput.value;
+        const nome = nomeInput.value;
+        const idade = idadeInput.value;
         const usuario = {
             id: id,
-            nome: name
+            nome: nome,
+            idade: idade
         };
         console.log(usuario);
         try {
