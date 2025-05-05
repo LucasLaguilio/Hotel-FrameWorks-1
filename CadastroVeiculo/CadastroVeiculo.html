@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Veículos</title>
+    <link rel="stylesheet" href="/CadastroVeiculo/CadastroVeiculo.css">
+</head>
+
+<body>
+    <form onsubmit="event.preventDefault(); formulario()">
+        <input type="text" id="placa" name="placa" placeholder="Placa (AAA-1234)" maxlength="8" required><br><br>
+        <input type="text" id="modelo" name="modelo" placeholder="Modelo do veículo" required><br><br>
+        <input type="number" id="ano" name="ano" placeholder="Ano do veículo"><br><br>
+        <input type="text" id="marca" name="marca" placeholder="Marca" required><br><br>
+        <input type="text" id="cor" name="cor" placeholder="Cor do veículo" required><br><br>
+
+        <label for="tipo">Tipo de veículo:</label>
+        <select name="tipo" id="tipo_veiculo" required>
+            <option value="Carro">Carro</option>
+            <option value="Moto">Moto</option>
+            <option value="Caminhão">Caminhão</option>
+        </select><br><br>
+        
+
+        <input type="submit" id="cadastrar" value="Cadastrar">
+        <input type="reset" id="reset" value="Limpar">
+    </form>
+
+    <script>
+        async function formulario() {
+            
+            const placaInput = document.getElementById('placa');
+            const modeloInput = document.getElementById('modelo');
+            const marcaInput = document.getElementById("marca");
+            const anoInput = document.getElementById("ano");
+            const corInput = document.getElementById("cor");
+            const tipoInput = document.getElementById("tipo_veiculo");
+           
+            
+            const placa =  placaInput.value.toUpperCase();
+            const modelo = modeloInput.value;
+            const marca = marcaInput.value;
+            const ano = anoInput.value;
+            const cor = corInput.value;
+            const tipo_veiculo = tipoInput.value;
+
+          
+            const placaRegex = /^[A-Z]{3}-?\d{4}$/;
+            if (!placaRegex.test(placa)) {
+                alert("Placa inválida. Use o formato ABC-1234.");
+                return;
+            }
+
+            const veiculo = {
+                placa: placa,
+                modelo: modelo,
+                marca: marca,
+                ano: ano,
+                cor: cor,
+                tipo_veiculo: tipo_veiculo,
+            };
+
+            console.log(veiculo);
+
+            try {
+                const resposta = await fetch('http://127.0.0.1:8080/veiculos', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(veiculo)
+                });
+
+                if (resposta.status === 200) {
+                    alert("Veículo cadastrado com sucesso.");
+                } else if (resposta.status === 400) {
+                    const dados = await resposta.json();
+                    alert("Erro: " + dados.mensagem);
+                } else {
+                    alert("Erro ao cadastrar o veículo. Código: " + resposta.status);
+                }
+            } catch (erro) {
+                console.log(erro);
+                alert("Erro ao conectar com o servidor.");
+            }
+        }
+    </script>
+</body>
+
+</html>
