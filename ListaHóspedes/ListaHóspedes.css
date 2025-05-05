@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap');
+
+
+body {
+    background-color: #ffffff;
+    font-family: "Parkinsans", sans-serif;
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-family: "Parkinsans", sans-serif;
+    font-weight: 400;
+    color: #000000;
+}
+
+.container {
+    padding: 80px 20px 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.listagem {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.card {
+    background-color: #111;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    width: 280px;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.02);
+}
+
+.card h3 {
+    font-family: 'Inter';
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 14px;
+    color: #000000;
+}
