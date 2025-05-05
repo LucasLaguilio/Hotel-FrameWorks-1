@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ListaDeVeiculos</title>
+    <link rel="stylesheet" href="/ListaVeiculos/ListaDeVeiculos.css"> 
+</head>
+<body>
+     <ul id="listaveiculos">  <li> </li> </ul>
+
+     <script>
+     async function buscadeVeiculos() {
+    const respostaveiculos = await fetch("http://localhost:8080/veiculos");
+     const listadeveiculos = document.getElementById("listaveiculos");
+     
+     if (respostaveiculos.status === 200) {
+        const dadosveiculos = await respostaveiculos.json();
+     
+        if (dadosveiculos.length === 0) {
+            listadeveiculos.innerHTML = '<li style="text-align:center; font-style:italic; color:gray;">Nenhum veículo cadastrado.</li>'
+        }
+        dadosveiculos.forEach(objeto => {
+            const listadeveiculoscriados = document.createElement('li');
+            listadeveiculos.innerHTML = `
+            <strong> Placa: </strong> ${objeto.placa} <br>
+            <strong> Modelo: </strong> ${objeto.modelo} <br>
+            <strong> Ano: </strong> ${objeto.ano} <br>
+            <strong> Marca: </strong> ${objeto.marca} <br>
+            <strong> Cor: </strong> ${objeto.cor} <br>
+            <strong> Tipo: </strong> ${objeto.tipo_veiculo}
+            `;
+            listadeveiculos.appendChild(listadeveiculoscriados)
+        });
+     }  else {
+        if (respostaveiculos.status === 400) {
+            const dados = await resposta.json();
+            alert(dados.mensagem);
+        } else {
+            alert("Erro desconhecido ao buscar dados.");
+        }
+     }
+    }
+
+    buscadeVeiculos();
+     
+     </script>
+</body>
+</html>
