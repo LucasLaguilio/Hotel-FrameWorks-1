@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600;700&family=Poppins:wght@400;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=block');
+@import url('https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap');
+
 
 * {
   margin: 0;
@@ -9,7 +11,7 @@
 
 body {
   background-color: rgb(0, 0, 0);
-  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-family: "Parkinsans", Arial, Helvetica, sans-serif;
 }
 
 /* Container do Menu */
@@ -19,6 +21,11 @@ body {
   gap: 20px;
   justify-content: center;
   padding: 20px;
+  text-decoration: none;
+}
+
+a{
+  text-decoration: none;
 }
 
 /* Itens do Menu */
@@ -33,7 +40,6 @@ body {
   height: 150px;
   border-radius: 10px;
   padding: 10px;
-  cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s;
   text-align: center;
   text-decoration: none;
@@ -41,15 +47,18 @@ body {
 
 /* Ícones */
 .menu-item .icon {
+  display: flex;
+  text-align: center;
+  justify-content: center;
   font-family: 'Material Symbols Outlined';
-  font-size: 40px;
+  font-size: 30px;
   margin-bottom: 10px;
   color: white;
 }
 
 /* Textos abaixo dos ícones */
 .menu-item span {
-  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+  font-family: "Parkinsans", Arial, Helvetica, sans-serif;
   font-size: 14px;
   margin-top: 5px;
   color: white;
@@ -62,25 +71,4 @@ body {
 
 .menu-item:hover .icon {
   color: rgba(123, 166, 222, 0.8);
-}
-
-/* Responsividade */
-@media only screen and (max-width: 620px) {
-  .menu-container {
-    gap: 15px;
-    padding: 10px;
-  }
-
-  .menu-item {
-    width: 120px;
-    height: 120px;
-  }
-
-  .menu-item .icon {
-    font-size: 35px;
-  }
-
-  .menu-item span {
-    font-size: 12px;
-  }
 }

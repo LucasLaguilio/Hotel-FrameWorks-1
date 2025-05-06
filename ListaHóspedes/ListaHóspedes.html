@@ -8,17 +8,14 @@
   <link rel="stylesheet" href="/ListaHóspedes/ListaHóspedes.css">
   <link href="https://api.fontshare.com/v2/css?f[]=satoshi@1&display=swap" rel="stylesheet">
 
+
 </head>
 
 <body>
 
-  <div class="button_center">
-    <button id="botão">Cadastrar um Hóspede</button>
-  </div>
-
   <h1>Lista de Hóspedes Cadastrados</h1>
   <ul id="userlist"></ul>
-
+  
   <script>
     async function buscadedados() {
       const resposta = await fetch('http://localhost:8080/usuarios');

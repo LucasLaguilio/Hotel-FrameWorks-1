@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Quarto</title>
+    <link rel="stylesheet" href="/CadastroQuartos/CadastroQuartos.css">
+</head>
+
+<body>
+    <form onsubmit="event.preventDefault(); cadastrarQuarto()">
+        <input type="number" id="numero" name="numero" placeholder="Número do Quarto" required><br><br>
+        <input type="number" id="quantidadeQ" name="quantidade" placeholder="Quantidade de Quartos" required><br><br>
+        <input type="number" id="quantidadeC" name="quantidade" placeholder="Quantidade de Camas" required><br><br>
+        <input type="number" id="quantidadeB" name="quantidade" placeholder="Quantidade de Banheiros" required><br><br>
+        <input type="text" id="localizacao" name="localizacao" placeholder="Localização" required><br><br>
+        <input type="number" id="valor" name="valor" placeholder="Valor (R$)" required step="0.01"><br><br>
+        <input type="text" id="vista" name="vita" placeholder="Vista do Quarto" required><br><br>
+
+
+        <input type="submit" id="cadastrar" value="Cadastrar Quarto">
+        <input type="reset" id="reset" value="Limpar">
+    </form>
+
+    <script>
+        async function cadastrarQuarto() {
+            const numeroInput = document.getElementById("numero");
+            const quantidadeQInput = document.getElementById("quantidadeQ");
+            const quantidadeCInput = document.getElementById("quantidadeC");
+            const quantidadeBInput = document.getElementById("quantidadeB");
+            const localizacaoInput = document.getElementById("localizacao");
+            const valorInput = document.getElementById("valor");
+            const vistaInput = document.getElementById("vista");
+
+             const numero = numeroInput.value;
+             const quantidadeQ = quantidadeQInput.value;
+             const quantidadeC = quantidadeCInput.value;
+             const quantidadeB = quantidadeBInput.value;
+             const localizacao =  localizacaoInput.value;
+             const valor = valorInput.value;
+             const vista = vistaInput.value;
+            
+                const Quarto = {
+                numero:  numero,
+                quantidadeQ: quantidadeQ,
+                quantidadeC: quantidadeC,
+                quantidadeB: quantidadeB,
+                localizacao: localizacao,
+                valor: valor,
+                vista: vista
+            };
+
+            console.log(Quarto);
+
+            try {
+                const resposta = await fetch('http://localhost:8080/quartos', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(quarto)
+                });
+
+                if (resposta.ok) {
+                    alert("Quarto cadastrado com sucesso.");
+                } else {
+                    const dados = await resposta.json();
+                    alert("Erro: " + (dados.mensagem || "Ocorreu um erro inesperado."));
+                }
+            } catch (erro) {
+                console.log(erro);
+                alert("Erro ao cadastrar quarto.");
+            }
+        }
+    </script>
+</body>
+
+</html>
