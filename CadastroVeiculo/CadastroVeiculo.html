@@ -3,25 +3,25 @@
 
 <head>
     <meta charset="UTF-8"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <title>Cadastrar Veículos</title>
     <link rel="stylesheet" href="/CadastroVeiculo/CadastroVeiculo.css"> 
 </head>
 
 <body>
     <!-- Formulário para cadastro de veículos -->
-    <form onsubmit="event.preventDefault(); formulario()"> <!-- Ao enviar, impede recarregamento da página e chama a função formulario() -->
-        <input type="text" id="placa" name="placa" placeholder="Placa (AAA-1234)" maxlength="8" required><br><br> <!-- Campo para a placa do veículo, com no máximo 8 caracteres e obrigatório -->
-        <input type="text" id="modelo" name="modelo" placeholder="Modelo do veículo" required><br><br> <!-- Campo para o modelo do veículo, obrigatório -->
-        <input type="number" id="ano" name="ano" placeholder="Ano do veículo"><br><br> <!-- Campo para o ano, tipo numérico -->
-        <input type="text" id="marca" name="marca" placeholder="Marca" required><br><br> <!-- Campo para a marca do veículo, obrigatório -->
-        <input type="text" id="cor" name="cor" placeholder="Cor do veículo" required><br><br> <!-- Campo para a cor do veículo, obrigatório -->
+    <form onsubmit="event.preventDefault(); formulario()"> <!--impede recarregamento da página e chama a função formulario() -->
+        <input type="text" id="placa" name="placa" placeholder="Placa (AAA-1234)" maxlength="8" required><br><br> 
+        <input type="text" id="modelo" name="modelo" placeholder="Modelo do veículo" required><br><br>
+        <input type="number" id="ano" name="ano" placeholder="Ano do veículo"><br><br> 
+        <input type="text" id="marca" name="marca" placeholder="Marca" required><br><br> 
+        <input type="text" id="cor" name="cor" placeholder="Cor do veículo" required><br><br> 
 
         <label for="tipo">Tipo de veículo:</label> <!-- Rótulo do campo tipo de veículo -->
         <select name="tipo" id="tipo_veiculo" required> <!-- Menu suspenso para selecionar o tipo de veículo -->
-            <option value="Carro">Carro</option> <!-- Opção "Carro" -->
-            <option value="Moto">Moto</option> <!-- Opção "Moto" -->
-            <option value="Caminhão">Caminhão</option> <!-- Opção "Caminhão" -->
+            <option value="Carro">Carro</option> 
+            <option value="Moto">Moto</option> 
+            <option value=" Caminhão">Caminhão</option>
         </select><br><br>
         
         <input type="submit" id="cadastrar" value="Cadastrar"> <!-- Botão para enviar o formulário -->
@@ -48,12 +48,12 @@
             const cor = corInput.value;
             const tipo_veiculo = tipoInput.value;
 
-            // Expressão regular para validar o formato da placa (ex: ABC-1234)
+            //valida o formato da placa (ABC-1234)
             const placaRegex = /^[A-Z]{3}-?\d{4}$/;
 
             // Verifica se a placa é válida
             if (!placaRegex.test(placa)) {
-                alert("Placa inválida. Use o formato ABC-1234."); // Exibe alerta se estiver incorreta
+                alert("Placa inválida. Use o formato ABC-1234."); // Exibe alerta se estiver errada
                 return; // Encerra a função
             }
 
@@ -67,14 +67,13 @@
                 tipo_veiculo: tipo_veiculo,
             };
 
-            console.log(veiculo); // Exibe o objeto no console do navegador (útil para debug)
 
             try {
                 // Faz uma requisição POST para o servidor local
                 const resposta = await fetch('http://127.0.0.1:8080/veiculos', {
                     method: 'POST', // Método de envio
                     headers: {
-                        'Content-Type': 'application/json' // Indica que está enviando JSON
+                        'Content-Type': 'application/json' // mostra que está enviando JSON
                     },
                     body: JSON.stringify(veiculo) // Converte o objeto para string JSON e envia
                 });

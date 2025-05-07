@@ -1,50 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ListaDeVeiculos</title>
-    <link rel="stylesheet" href="/ListaVeiculos/ListaDeVeiculos.css"> 
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ListaDeVeiculos</title>
+  <link rel="stylesheet" href="/ListaVeiculos/ListaDeVeiculos.css">
 </head>
 <body>
-     <ul id="listaveiculos">  <li> </li> </ul>
+  <header class="top">
+    <nav class="navbar">
+      <div class="navbar-brand">
+        <p class="logo">HOTELHOST</p>
+      </div>
 
-     <script>
-     async function buscadeVeiculos() {
-    const respostaveiculos = await fetch("http://localhost:8080/veiculos");
-     const listadeveiculos = document.getElementById("listaveiculos");
-     
-     if (respostaveiculos.status === 200) {
-        const dadosveiculos = await respostaveiculos.json();
-     
-        if (dadosveiculos.length === 0) {
-            listadeveiculos.innerHTML = '<li style="text-align:center; font-style:italic; color:gray;">Nenhum veículo cadastrado.</li>'
-        }
-        dadosveiculos.forEach(objeto => {
-            const listadeveiculoscriados = document.createElement('li');
-            listadeveiculos.innerHTML = `
-            <strong> Placa: </strong> ${objeto.placa} <br>
-            <strong> Modelo: </strong> ${objeto.modelo} <br>
-            <strong> Ano: </strong> ${objeto.ano} <br>
-            <strong> Marca: </strong> ${objeto.marca} <br>
-            <strong> Cor: </strong> ${objeto.cor} <br>
-            <strong> Tipo: </strong> ${objeto.tipo_veiculo}  
-            
+      <input type="checkbox" id="menuToggle">
+      <label for="menuToggle" class="navbar-toggle">&#9776;</label>
+
+      <ul class="navbar-menu">
+        <li><a href="/Homepage/Homepage.html">Início</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <h1>Lista de Veículos</h1>
+  <ul id="listaveiculos"></ul>
+
+  <script>
+    async function buscadeVeiculos() {
+      try {
+        const respostaveiculos = await fetch("http://localhost:8080/veiculos");
+        const listadeveiculos = document.getElementById("listaveiculos");
+        listadeveiculos.innerHTML = "";
+        if (respostaveiculos.status === 200) {
+          const dadosveiculos = await respostaveiculos.json();
+
+          if (dadosveiculos.length === 0) {
+            listadeveiculos.innerHTML = '<li style="text-align:center; font-style:italic; color:gray;">Nenhum veículo cadastrado.</li>';
+            return;
+          }
+
+          dadosveiculos.forEach(objeto => {
+            const li = document.createElement('li');
+            li.innerHTML = `
+              <strong>Placa:</strong> ${objeto.placa} <br>
+              <strong>Modelo:</strong> ${objeto.modelo} <br>
+              <strong>Marca:</strong> ${objeto.marca} <br>
+              <strong>Ano:</strong> ${objeto.ano} <br>
+              <strong>Cor:</strong> ${objeto.cor} <br>
+              <strong>Tipo:</strong> ${objeto.tipo_veiculo}
             `;
-            listadeveiculos.appendChild(listadeveiculoscriados)
-        });
-     }  else {
-        if (respostaveiculos.status === 400) {
-            const dados = await resposta.json();
-            alert(dados.mensagem);
+            listadeveiculos.appendChild(li);
+          });
+        } else if (respostaveiculos.status === 400) {
+          const dados = await respostaveiculos.json();
+          alert(dados.mensagem);
         } else {
-            alert("Erro desconhecido ao buscar dados.");
+          alert("Erro desconhecido ao buscar dados.");
         }
-     }
+      } catch (erro) {
+        alert("Erro ao conectar com o servidor.");
+        console.error("Erro de conexão:", erro);
+      }
     }
 
     buscadeVeiculos();
-     
-     </script>
+  </script>
 </body>
 </html>

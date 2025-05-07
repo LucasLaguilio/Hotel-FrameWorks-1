@@ -4,20 +4,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lista de Hóspedes</title>
+  <title>Lista de Quartos</title>
   <link rel="stylesheet" href="/ListagemQuartos/ListagemQuartos.css">
   <link href="https://api.fontshare.com/v2/css?f[]=satoshi@1&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
+  <ul id="userlist"></ul>
 
-  <h1>Lista de quartos Cadastrados</h1>
+  <h1>Lista de Quartos Cadastrados</h1>
   <ul id="userlist"></ul>
   
   <script>
     async function buscadedados() {
-      const resposta = await fetch('http://localhost:8080/usuarios');
+      const resposta = await fetch('http://localhost:8080/quarto');
       const lista = document.getElementById('userlist');
 
       if (resposta.status === 200) {
@@ -28,25 +29,18 @@
         }
 
         dados.forEach(objeto => {
-          const listadosusuarioscriados = document.createElement('li');
-          listadosusuarioscriados.innerHTML = `
+          const listadosquartoscriados = document.createElement('li');
+          listadosquartoscriados.innerHTML = `
               <strong>Número: </strong> ${objeto.numero}<br>
               <strong>QuantidadeQ: </strong> ${objeto.quantidadeq} <br>
               <strong>QuantidadeC:</strong> ${objeto.quantidadec} <br>
               <strong>QuantidadeB:</strong> ${objeto.quantidadeb}<br>
               <strong>localizacao:</strong> ${objeto.localizacao}<br>
               <strong>valor:</strong> ${objeto.valor}<br>
-              <strong>vsita:</strong> ${objeto.vista}
+              <strong>vista:</strong> ${objeto.vista}
           `;
-          /*<input type="number" id="numero" name="numero" placeholder="Número do Quarto" required><br><br>
-        <input type="number" id="quantidadeQ" name="quantidade" placeholder="Quantidade de Quartos" required><br><br>
-        <input type="number" id="quantidadeC" name="quantidade" placeholder="Quantidade de Camas" required><br><br>
-        <input type="number" id="quantidadeB" name="quantidade" placeholder="Quantidade de Banheiros" required><br><br>
-        <input type="text" id="localizacao" name="localizacao" placeholder="Localização" required><br><br>
-        <input type="number" id="valor" name="valor" placeholder="Valor (R$)" required step="0.01"><br><br>
-        <input type="text" id="vista" name="vita" placeholder="Vista do Quarto" required><br><br>
-*/
-          lista.appendChild(listadosusuarioscriados);
+    
+          lista.appendChild(listadosquartoscriados);
         });
 
       } else {
@@ -60,10 +54,6 @@
     }
 
     buscadedados();
-
-    document.getElementById('botão').addEventListener('click', () => {
-      window.location.href = '/CadastroHóspedes/CadastroHóspedes.html';
-    });
   </script>
 
 </body>

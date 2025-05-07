@@ -30,4 +30,16 @@ create table Veiculos (
   tipo_veiculo ENUM('Carro', 'Moto', 'Caminhão') NOT NULL 
 );
 
+create table Quartos (
+  numero int primary key not null, 
+  quantidadeQ int not null, 
+  quantidadeC int not null, 
+  quantidadeB int not null, 
+  localizacao varchar(200) not null, 
+  valor int not null,
+  vista varchar(100)
+
+  
+)
+
 

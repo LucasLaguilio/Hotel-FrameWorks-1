@@ -11,12 +11,12 @@
 <body>
     <form onsubmit="event.preventDefault(); cadastrarQuarto()">
         <input type="number" id="numero" name="numero" placeholder="Número do Quarto" required><br><br>
-        <input type="number" id="quantidadeQ" name="quantidade" placeholder="Quantidade de Quartos" required><br><br>
-        <input type="number" id="quantidadeC" name="quantidade" placeholder="Quantidade de Camas" required><br><br>
-        <input type="number" id="quantidadeB" name="quantidade" placeholder="Quantidade de Banheiros" required><br><br>
+        <input type="number" id="quantidadeQ" name="quantidadeQ" placeholder="Quantidade de Quartos" required><br><br>
+        <input type="number" id="quantidadeC" name="quantidadeC" placeholder="Quantidade de Camas" required><br><br>
+        <input type="number" id="quantidadeB" name="quantidadeB" placeholder="Quantidade de Banheiros" required><br><br>
         <input type="text" id="localizacao" name="localizacao" placeholder="Localização" required><br><br>
-        <input type="number" id="valor" name="valor" placeholder="Valor (R$)" required step="0.01"><br><br>
-        <input type="text" id="vista" name="vita" placeholder="Vista do Quarto" required><br><br>
+        <input type="number" id="valor" name="valor" placeholder="Valor (R$)" required step="0.01" min="0.01">
+        <input type="text" id="vista" name="vista" placeholder="Vista do Quarto" required><br><br>
 
 
         <input type="submit" id="cadastrar" value="Cadastrar Quarto">
@@ -59,7 +59,7 @@
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify(quarto)
+                    body: JSON.stringify(Quarto)
                 });
 
                 if (resposta.ok) {
