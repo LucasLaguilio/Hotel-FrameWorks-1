@@ -9,6 +9,21 @@
 </head>
 
 <body>
+    <header class="top">
+    <nav class="navbar">
+      <div class="navbar-brand">
+        <p class="logo">HOTELHOST</p>
+      </div>
+
+      <input type="checkbox" id="menuToggle">
+      <label for="menuToggle" class="navbar-toggle">&#9776;</label>
+
+      <ul class="navbar-menu">
+        <li><a href="/Homepage/Homepage.html">Início</a></li>
+      </ul>
+    </nav>
+  </header>
+
     <!-- Formulário para cadastro de veículos -->
     <form onsubmit="event.preventDefault(); formulario()"> <!--impede recarregamento da página e chama a função formulario() -->
         <input type="text" id="placa" name="placa" placeholder="Placa (AAA-1234)" maxlength="8" required><br><br> 

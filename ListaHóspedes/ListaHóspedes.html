@@ -7,155 +7,7 @@
   <title>Lista de Hóspedes</title>
   <link rel="stylesheet" href="/ListaHóspedes/ListaHóspedes.css">
   <link href="https://api.fontshare.com/v2/css?f[]=satoshi@1&display=swap" rel="stylesheet">
-   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600;700&family=Poppins:wght@400;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=block');
-@import url('https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap');
-
-
-body {
-    background-color: #ffffff;
-    font-family: "Parkinsans", sans-serif;
-    font-style: normal;
-    margin: 0;
-    padding: 0;
-}
-
-.top {
-    position: fixed;
-    width: 100vw;
-    top: 0;
-    z-index: 100;
-  }
   
-  .navbar {
-    background-color: #00000098;
-    color: #ffffff;
-    padding: 10px 20px;
-    display: flex;
-    height: 50px;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-  }
-  
-  .navbar-brand {
-    font-family: 'Inter', Arial, Helvetica, sans-serif;
-    font-size: 30px;
-  }
-  
-  .navbar-menu {
-    font-family: 'Poppins', Arial, Helvetica, sans-serif;
-    list-style-type: none;
-    display: flex;
-    gap: 20px;
-    margin-right: 30px;
-  }
-  
-  .navbar-menu li a {
-    text-decoration: none;
-    color: #fff;
-    transition: color 0.3s;
-  }
-  
-  .navbar-menu li a:hover {
-    color: #ffdc7c;
-  }
-  
-  .navbar-toggle {
-    display: none;
-  }
-  
-  #menuToggle {
-    display: none;
-  }
-  
-  @media screen and (max-width: 620px) {
-    .navbar-menu {
-      display: none;
-      width: 100%;
-      text-align: center;
-      position: absolute;
-      top: 70px;
-      left: 0;
-      background-color: rgba(0, 0, 0, 0.643);
-      height: 40px;
-      align-items: center;
-      flex-direction: row;
-      gap: 20px;
-      justify-content: center;
-      transition-property: all;
-    }
-  
-    #menuToggle:checked+.navbar-toggle+.navbar-menu {
-      display: flex;
-      align-self: center;
-  
-    }
-  
-    .navbar-toggle {
-      display: block;
-      cursor: pointer;
-    }
-  
-  }
-  
-
-
-h1 {
-    font-family: "Parkinsans", sans-serif;
-    font-weight: 400;
-    color: #000000;
-    text-align: center;
-}
-
-.container {
-    padding: 80px 20px 40px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.cards {
-    padding: 3px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 3px;
-    justify-content: center;
-}
-
-strong{
-    color: #ffbb00;
-}
-
-#userlist {
-    list-style: none;
-    padding: 0;
-    margin: 30px auto;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 50px;
-    justify-content: center;
-    max-width: 1500px;
-}
-  
-#userlist li {
-    background-color: #fff;
-    border-left: 6px solid #ffeab1;
-    padding: 20px;
-    width: 370px; /* largura fixa ou responsiva */
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
-    transition: transform 0.2s;
-    box-sizing: border-box;
-}
-  
-#userlist li:hover {
-    transform: scale(1.02);
-}
-   </style>
-
 </head>
 
 <body>
@@ -170,55 +22,29 @@ strong{
 
       <ul class="navbar-menu">
         <li><a href="/Homepage/Homepage.html">Início</a></li>
+        
       </ul>
     </nav>
   </header>
+  
+<h1 style="margin-top: 100px;">Hóspedes Cadastrados</h1>
 
-  <h1 style="margin-top: 100px;">Hóspedes Cadastrados</h1>
+<form onsubmit="event.preventDefault(); EnviaFiltro();">
+  <select id="TipoFiltro" required onchange="atualizaMascara()">
+    <option value="cpf">CPF</option>
+    <option value="nome">Nome</option>
+    <option value="telefone">Telefone</option>
+    <option value="email">Email</option>
+  </select>
+
+  <input type="text" id="Filtro" placeholder="Digite o filtro..." maxlength="50" oninput="aplicarMascara()" required>
+  <input type="submit" value="Filtrar">
+</form>
+
+
   <ul id="userlist"></ul>
   
-  <script>
-    async function buscadedados() {
-      const resposta = await fetch('http://localhost:8080/usuarios');
-      const lista = document.getElementById('userlist');
-
-      if (resposta.status === 200) {
-        const dados = await resposta.json();
-
-        if (dados.length === 0) {
-          lista.innerHTML = '<li style="text-align:center; font-style:italic; color:gray;">Nenhum hóspede cadastrado.</li>';
-        }
-
-        dados.forEach(objeto => {
-          const listadosusuarioscriados = document.createElement('li');
-          listadosusuarioscriados.innerHTML = `
-              <strong>CPF:</strong> ${objeto.cpf}<br>
-              <strong>Hóspede:</strong> ${objeto.nome} ${objeto.sobrenome}<br>
-              <strong>Idade:</strong> ${objeto.idade} anos<br>
-              <strong>Telefone:</strong> ${objeto.telefone}<br>
-              <strong>Email:</strong> ${objeto.email}<br>
-              <strong>Sexo:</strong> ${objeto.sexo}
-          `;
-          lista.appendChild(listadosusuarioscriados);
-        });
-
-      } else {
-        if (resposta.status === 400) {
-          const dados = await resposta.json();
-          alert(dados.mensagem);
-        } else {
-          alert("Erro desconhecido ao buscar dados.");
-        }
-      }
-    }
-
-    buscadedados();
-
-    document.getElementById('botão').addEventListener('click', () => {
-      window.location.href = '/CadastroHóspedes/CadastroHóspedes.html';
-    });
-  </script>
-
+  <script src="/ListaHóspedes/ListaHóspedes.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600;700&family=Poppins:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Parkinsans", Arial, Helvetica, sans-serif;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 600px;
+  margin: 100px auto 50px;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  border: 1px solid rgba(209, 209, 209, 0.329);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.144);
+  color: #000000;
+}
+
+input[type="text"],
+input[type="number"] {
+  font-family: "Parkinsans", Arial, Helvetica, sans-serif;
+  padding: 12px 14px;
+  border-radius: 6px;
+  border: 1px solid #c9c9c9;
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 15px;
+  transition: border 0.3s, background-color 0.3s;
+}
+
+input:focus {
+  outline: none;
+  border: 1px solid #ffd154;
+  background-color: #fff4c2;
+}
+
+input::placeholder {
+  color: #272727b6;
+}
+
+input:focus::placeholder {
+  color: #a07500;
+}
+
+input[type="submit"],
+input[type="reset"] {
+  background: linear-gradient(135deg, #ffd154, #ffd154);
+  color: #fff;
+  padding: 12px 24px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: "Parkinsans", Arial, Helvetica, sans-serif;
+  transition: background 0.3s ease, transform 0.2s;
+}
+
+input[type="submit"]:hover {
+  background: #468e2a;
+  transform: scale(1.03);
+}
+
+input[type="reset"]:hover {
+  background: rgb(173, 32, 32);
+  transform: scale(1.03);
+}

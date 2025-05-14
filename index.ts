@@ -84,7 +84,35 @@ servidor.get("/usuarios", async (_request: FastifyRequest, reply: FastifyReply) 
     }
 })
 
-servidor.get 
+// Lucas
+servidor.get("/filtro/:tipo/:valor", async (request: FastifyRequest, reply: FastifyReply) => {
+  const { tipo, valor } = request.params as any;
+
+  const camposPermitidos = ['cpf', 'nome', 'telefone', 'email'];
+  if (!camposPermitidos.includes(tipo)) {
+    return reply.status(400).send({ mensagem: "Tipo de filtro inválido." });
+  }
+
+  try {
+    const conn = await mysql.createConnection({
+      host: 'localhost',
+      user: 'root',
+      password: '',
+      database: 'ServerDatabase',
+      port: 3306
+    });
+
+    const query = `SELECT * FROM users WHERE ${tipo} LIKE ?`;
+    const results = await conn.query(query, [`%${valor}%`]);
+    const [dados] = results;
+    reply.status(200).send(dados);
+  } catch (erro: any) {
+    console.log(erro);
+    reply.status(500).send({ mensagem: "Erro ao buscar os usuários." });
+  }
+});
+
+
 
 //Laurizy
 servidor.post("/veiculos", async (request: FastifyRequest, reply: FastifyReply) => {

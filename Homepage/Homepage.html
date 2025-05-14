@@ -1,13 +1,27 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" href="Union.svg" type="image/x-icon">
   <title>Home</title>
+  <link class="iconf" rel="icon" type="image/Union.svg" href="/images/Union.svg">
   <link rel="stylesheet" href="/Homepage/Homepage.css"/>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=list,directions_car" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=list,directions_car,hotel" />" />
 </head>
 <body>
+   <header class="top">
+    <nav class="navbar">
+      <div class="navbar-brand">
+        <p class="logo">HOTELHOST</p>
+      </div>
+      <input type="checkbox" id="menuToggle">
+      <label for="menuToggle" class="navbar-toggle"></label>
+      <ul class="navbar-menu">
+        <li><a href="/Homepage/Homepage.html">Início</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <main class="menu-container">
     <div class="menu-item">
@@ -32,6 +46,18 @@
       <a href="/ListaVeiculos/ListaDeVeiculos.html">
         <span class="icon material-symbols-outlined">list</span>
         <span>Listagem de Veículos</span>
+      </a>
+    </div>
+    <div class="menu-item">
+      <a href="/ListaVeiculos/ListaDeVeiculos.html">
+        <span class="icon material-symbols-outlined">hotel</span>
+        <span>Quartos</span>
+      </a>
+    </div>
+    <div class="menu-item">
+      <a href="/ListaVeiculos/ListaDeVeiculos.html">
+        <span class="icon material-symbols-outlined">list</span>
+        <span>Listagem de Quartos</span>
       </a>
     </div>
   </main>
