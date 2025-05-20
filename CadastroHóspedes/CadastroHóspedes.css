@@ -3,15 +3,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=David+Libre:wght@400;500;700&display=swap');
+
 body {
   margin: 0;
   padding: 0;
-  font-family: "David Libre", serif;
-
+  font-family: "Playfair Display", serif;
   color: rgb(0, 0, 0);
-  background-color:   rgba(255, 232, 177, 0.158) ;
-
-
+  background: linear-gradient(180deg, rgb(2, 148, 148) 50.50%, rgb(255, 232, 177) 80.50%);
 }
 
 .top {
@@ -22,7 +20,7 @@ body {
 }
 
 .navbar {
-  background-color: rgb(84, 165, 50);
+  background-color: inherit;
   color: #ffffff;
   padding: 10px 20px;
   display: flex;
@@ -30,17 +28,16 @@ body {
   justify-content: space-between;
   align-items: center;
   position: relative;
-   font-family: 'Playfair Display', serif;
-  box-shadow: 10px rgb(84, 165, 50) ;
+  font-family: 'Playfair Display', serif;
 }
 
 .navbar-brand {
-  font-family: "David Libre", serif;
+  font-family: "Playfair Display", serif;
+  font-weight: 500;
   font-size: 50px;
   color: rgb(255, 232, 177);
   letter-spacing: 0px;
 }
-
 
 .navbar-menu {
   font-family: 'Poppins', Arial, Helvetica, sans-serif;
@@ -76,7 +73,6 @@ body {
     position: absolute;
     top: 70px;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.643);
     height: 40px;
     align-items: center;
     flex-direction: row;
@@ -85,30 +81,16 @@ body {
     transition-property: all;
   }
 
-  #menuToggle:checked+.navbar-toggle+.navbar-menu {
+  #menuToggle:checked + .navbar-toggle + .navbar-menu {
     display: flex;
     align-self: center;
-
   }
 
   .navbar-toggle {
     display: block;
     cursor: pointer;
   }
-
 }
-
-h1{
-  text-align: center;
-  color: #000000;
-}
-h1:hover{
-  text-align: center;
-  color: #ffd154;
-  transition: color 0.3s ease, transform 0.2s;
-}
-
-
 
 form {
   display: flex;
@@ -118,10 +100,14 @@ form {
   margin: 50px auto;
   margin-top: 100px;
   padding: 30px;
-  background-color: #ffffff;
+
+  background: rgba(255, 255, 255, 0.15); /* transparência */
   border-radius: 12px;
-  border: 1px solid rgba(209, 209, 209, 0.329);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.144);
+  border: 1px solid rgba(255, 255, 255, 0.4); /* borda suave */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
   color: #000000;
 }
 
@@ -164,23 +150,22 @@ input[type="reset"] {
   transition: background 0.3s ease, transform 0.2s;
 }
 
-input[type="submit"]:hover{
+input[type="submit"]:hover {
   background: #468e2a;
-  transform: scale(1.03s);
+  transform: scale(1.03);
 }
+
 input[type="reset"]:hover {
   background: rgb(173, 32, 32);
-  transform: scale(1.03s);
+  transform: scale(1.03);
 }
-
-
 
 input::placeholder {
   color: #272727b6;
 }
 
 input:focus::placeholder {
-  color: #a07500; 
+  color: #a07500;
 }
 
 select {
