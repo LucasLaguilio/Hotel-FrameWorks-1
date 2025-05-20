@@ -1,16 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600;700&family=Poppins:wght@400;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=block');
 @import url('https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap');
-
-
-
-
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=David+Libre:wght@400;500;700&display=swap');
 body {
   margin: 0;
   padding: 0;
-  font-family: "Parkinsans", Arial, Helvetica, sans-serif;
-  background-color: rgb(255, 255, 255);
+  font-family: "David Libre", serif;
+
   color: rgb(0, 0, 0);
+  background-color:   rgba(255, 232, 177, 0.158) ;
+
+
 }
 
 .top {
@@ -21,7 +22,7 @@ body {
 }
 
 .navbar {
-  background-color: rgba(0, 0, 0, 0.643);
+  background-color: rgb(84, 165, 50);
   color: #ffffff;
   padding: 10px 20px;
   display: flex;
@@ -29,12 +30,17 @@ body {
   justify-content: space-between;
   align-items: center;
   position: relative;
+   font-family: 'Playfair Display', serif;
+  box-shadow: 10px rgb(84, 165, 50) ;
 }
 
 .navbar-brand {
-  font-family: 'Inter', Arial, Helvetica, sans-serif;
-  font-size: 30px;
+  font-family: "David Libre", serif;
+  font-size: 50px;
+  color: rgb(255, 232, 177);
+  letter-spacing: 0px;
 }
+
 
 .navbar-menu {
   font-family: 'Poppins', Arial, Helvetica, sans-serif;
