@@ -1,15 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600;700&family=Poppins:wght@400;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=block');
-@import url('https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=David+Libre:wght@400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@600;700&family=Poppins:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=block");
+@import url("https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=David+Libre:wght@400;500;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap');
 
+
+
+html,
 body {
+  height: 100%;
   margin: 0;
   padding: 0;
-  font-family: "Playfair Display", serif;
-  color: rgb(0, 0, 0);
   background: linear-gradient(180deg, rgb(2, 148, 148) 50.50%, rgb(255, 232, 177) 80.50%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  scroll-behavior: smooth;
 }
 
 .top {
@@ -21,26 +28,32 @@ body {
 
 .navbar {
   background-color: inherit;
-  color: #ffffff;
   padding: 10px 20px;
   display: flex;
   height: 50px;
   justify-content: space-between;
   align-items: center;
   position: relative;
-  font-family: 'Playfair Display', serif;
+
 }
 
+
 .navbar-brand {
-  font-family: "Playfair Display", serif;
-  font-weight: 500;
+  font-family: "EB Garamond", serif;
+  font-weight: 400;
   font-size: 50px;
   color: rgb(255, 232, 177);
   letter-spacing: 0px;
 }
 
+sup {
+  font-size: 20px;
+  color: inherit;
+  margin: 5px;
+}
+
 .navbar-menu {
-  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
   list-style-type: none;
   display: flex;
   gap: 20px;
@@ -49,12 +62,12 @@ body {
 
 .navbar-menu li a {
   text-decoration: none;
-  color: #fff;
+  color: rgb(255, 232, 177);
   transition: color 0.3s;
 }
 
 .navbar-menu li a:hover {
-  color: #ddd;
+  color: rgb(255, 196, 58);
 }
 
 .navbar-toggle {
@@ -97,81 +110,102 @@ form {
   flex-direction: column;
   gap: 10px;
   max-width: 600px;
+  max-height: 800px ;
   margin: 50px auto;
   margin-top: 100px;
   padding: 30px;
-
-  background: rgba(255, 255, 255, 0.15); /* transparência */
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.4); /* borda suave */
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  background: transparent;
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-
-  color: #000000;
+  color: rgb(2, 148, 148);
 }
 
 input[type="text"],
 input[type="number"],
 input[type="email"],
-select {
-  font-family: "Parkinsans", Arial, Helvetica, sans-serif;
-  padding: 12px 14px;
-  border-radius: 6px;
-  border: 1px solid #c9c9c9;
-  background-color: #ffffff;
-  color: #000000;
+select#sexo {
+  color: rgb(2, 148, 148, 1);
+  font-family: "Inter", sans-serif;
   font-size: 15px;
-  transition: border 0.3s, background-color 0.3s;
+  font-weight: 100;
+  letter-spacing: 0px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 0px;
+  box-shadow: 1px 5px 25px rgba(0, 0, 0, 0.5);
+  background-color: rgb(255, 255, 255);
+  transition: background-color 0.5s ease-in-out, opacity 0.5s ease-in;
+}
+
+input:hover,
+select#sexo:hover {
+  background-color: rgb(255, 233, 184);
+  transition: background-color 0.5s ease-in-out, opacity 0.5s ease-in;
+  opacity: 1;
+}
+
+input {
+  transition: opacity 0.5s ease-out;
+}
+
+input:hover {
+  opacity: 1;
+}
+
+input::placeholder {
+  color: rgb(2, 148, 148, 1);
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  font-weight: 100;
+  transition: color 0.5s ease-in-out;
+}
+
+input:hover::placeholder {
+  transition: color 0.5s ease-out;
+}
+
+input:focus::placeholder {
+  color: inherit;
 }
 
 input:focus,
 select:focus {
   outline: none;
-  border: 1px solid #ffd154;
-  background-color: #ffd154;
-}
-
-label {
-  font-size: 14px;
-  color: rgb(255, 255, 255);
+  border: 1px solid rgb(255, 232, 177);
+  background-color: rgb(255, 232, 177);
 }
 
 input[type="submit"],
 input[type="reset"] {
-  background: linear-gradient(135deg, #ffd154, #ffd154);
-  color: #fff;
+  background: rgb(2, 148, 148);
+  color: rgb(255, 255, 255);
   padding: 12px 24px;
-  font-size: 16px;
+  font-size: 15px;
+  font-weight: 500;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
-  font-family: "Parkinsans", Arial, Helvetica, sans-serif;
-  transition: background 0.3s ease, transform 0.2s;
+  font-family: "Inter", sans-serif;
+  letter-spacing: 0px;
+  transition: color 0.2s ease, transform 0.5s;
 }
 
 input[type="submit"]:hover {
   background: #468e2a;
-  transform: scale(1.03);
+  transform: scale(1.05);
+  color: white;
 }
 
 input[type="reset"]:hover {
-  background: rgb(173, 32, 32);
-  transform: scale(1.03);
-}
-
-input::placeholder {
-  color: #272727b6;
-}
-
-input:focus::placeholder {
-  color: #a07500;
+  background: rgb(66, 10, 10);
+  transform: scale(1.05);
+  color: white;
 }
 
 select {
-  font-family: "Parkinsans", Arial, Helvetica, sans-serif;
   padding: 12px 14px;
-  border-radius: 6px;
+  border-radius: 10px;
   border: 1px solid #c9c9c9;
   background-color: #ffffff;
   color: #000000;
@@ -182,9 +216,4 @@ select {
   background-repeat: no-repeat;
   background-position: right 12px center;
   background-size: 12px;
-}
-
-select:focus {
-  border: 1px solid #ffd154;
-  background-color: #fff4c2;
 }
