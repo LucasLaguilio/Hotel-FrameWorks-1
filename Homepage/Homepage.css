@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600;700&family=Poppins:wght@400;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=block');
-@import url('https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Parkinsons:wght@300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400&display=swap');
 
 
 * {
@@ -11,11 +12,72 @@
 
 body {
   margin: 0;
-  margin-top: 100px;
   padding: 0;
-  font-family: "Parkinsans", Arial, Helvetica, sans-serif;
-  background-color: rgb(255, 255, 255);
-  color: rgb(0, 0, 0);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: rgb(63, 179, 179);
+} 
+
+header {
+  background-color: rgba(2, 148, 148, 0);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+main {
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 400px;
+  margin-top: 100px;
+  
+}
+.butao{
+    background-color: rgb(63, 179, 179);
+    
+}
+.block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.sobre {
+  background-color: peachpuff;
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  color: rgb(255, 232, 177);
+  text-align: center;
+  border-top: 1px solid rgb(0, 0, 0);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+#footer {
+    position: fixed;
+    height: 50px;
+    background-color: rgb(2, 155, 202);
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin-bottom: 0px;
+}
+
+#footer p {
+    color:rgb(255, 252, 245);
+    font-size: 20px;
+    text-align: center;
+    line-height: 50px;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
 }
 
 .top {
@@ -23,26 +85,40 @@ body {
   width: 100vw;
   top: 0;
   z-index: 100;
+  
 }
 
 .navbar {
-  background-color: rgba(0, 0, 0, 0.643);
-  color: #ffffff;
+  
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
   padding: 10px 20px;
   display: flex;
-  height: 70px;
+  height: 50px;
   justify-content: space-between;
   align-items: center;
   position: relative;
+
 }
 
+
 .navbar-brand {
-  font-family: 'Inter', Arial, Helvetica, sans-serif;
-  font-size: 30px;
+  font-family: "EB Garamond", serif;
+  font-weight: 400;
+  font-size: 50px;
+  color: rgb(0, 0, 0);
+  letter-spacing: 0px;
+}
+
+sup {
+  font-size: 20px;
+  color: inherit;
+  margin: 5px;
 }
 
 .navbar-menu {
-  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+  font-family: "Inter", sans-serif;
   list-style-type: none;
   display: flex;
   gap: 20px;
@@ -51,12 +127,12 @@ body {
 
 .navbar-menu li a {
   text-decoration: none;
-  color: #fff;
+  color: rgb(255, 232, 177);
   transition: color 0.3s;
 }
 
 .navbar-menu li a:hover {
-  color: #ddd;
+  color: rgb(255, 196, 58);
 }
 
 .navbar-toggle {
@@ -83,29 +159,26 @@ body {
     justify-content: center;
     transition-property: all;
   }
-
   #menuToggle:checked+.navbar-toggle+.navbar-menu {
     display: flex;
     align-self: center;
-
   }
-
   .navbar-toggle {
     display: block;
     cursor: pointer;
   }
-
 }
 
 
-/* Container do Menu */
+
 .menu-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 50px;
   justify-content: center;
   padding: 20px;
   text-decoration: none;
+  align-items: center;
 }
 
 a{
@@ -118,8 +191,9 @@ a{
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.7);
-  color: #fff;
+  background-color: rgba(255, 255, 255, 0);
+  box-shadow: 8px 0px 6px 0px rgba(255, 255, 255, 0.123);
+  color: #000000;
   width: 150px;
   height: 150px;
   border-radius: 10px;
@@ -129,7 +203,7 @@ a{
   text-decoration: none;
 }
 
-/* Ícones */
+
 .menu-item .icon {
   display: flex;
   text-align: center;
@@ -137,15 +211,15 @@ a{
   font-family: 'Material Symbols Outlined';
   font-size: 30px;
   margin-bottom: 10px;
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 /* Textos abaixo dos ícones */
 .menu-item span {
-  font-family: "Parkinsans", Arial, Helvetica, sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 14px;
   margin-top: 5px;
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 .menu-item:hover {
