@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PalmResort</title>
+    <link rel="stylesheet" href="/PalmResort/PalmResort.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+    <header class="top">
+        <nav class="navbar">
+          <div class="navbar-brand">
+            <p class="logo">PALM RESORT<sup>&reg;</sup></p>
+          </div>
+          <label for="menuToggle" class="navbar-toggle"></label>
+          <ul class="navbar-menu">
+            <li><a href="/Homepage/Homepage.html">Início</a></li>
+          </ul>
+        </nav>
+      </header>
+
+     <main> 
+
+      <div class="welcome">
+          <h1>Bem-vindo à sua segunda casa.</h1>
+          <p>Projetado e desenvolvido por aqueles que entendem de <em>verdade</em> as necessidades dos hóspedes.</p>
+          <span class="review">5/5 <span class="review">
+            <i class="fa fa-star" id="star1" onclick="avaliar(1)"></i>
+            <i class="fa fa-star" id="star2" onclick="avaliar(2)"></i>
+            <i class="fa fa-star" id="star3" onclick="avaliar(3)"></i>
+            <i class="fa fa-star" id="star4" onclick="avaliar(4)"></i>
+            <i class="fa fa-star" id="star5" onclick="avaliar(5)"></i>
+            7540 Reviews
+          </span>
+          
+          <video autoplay muted loop width="100%" height="100%">
+            <source src="/PalmResort/Video.mp4" type="video/mp4" >
+            Seu navegador não suporta vídeos.
+        </div>
+     </main>
+
+     <section class="sobre">
+       <div class="bannersobre"> 
+       <span id="sobre">Sobre:</span>
+       </div>
+      <div class="sobre-container">
+        <div class="sobre-content">
+          <div class="block">   <p>Construido em meados dos anos 80, o <span id="emphasis">Palm Resort </span> é um hotel de luxo localizado em Miami, em uma bela praia tropical. Oferecemos acomodações confortáveis, serviços excepcionais e uma variedade de atividades para tornar sua estadia inesquecível. Há mais de 45 anos trazendo luxo, conforto e tradição para aqueles que sabem desfrutar da vida. Nossa equipe está comprometida em proporcionar a melhor experiência possível aos nossos hóspedes, com atenção aos detalhes e um serviço amigável. Seja para férias relaxantes ou viagens de negócios, é o lugar <strong> perfeito </strong> para você.</p>   </div>
+        </div>
+        <div class="image-container">
+          <img src="/PalmResort/Grand Beach.jpg" alt="Palm Resort">
+        </div>
+      </div>
+      <div class="comments-container">
+        <div class="comments-content">
+          <div class="commentsbanner">Palavras dos nossos hóspedes:</div>
+          <div class="comments">
+            
+            <span id="comment-text" onclick=atualizacomentarios()></span>  
+          </div>
+      </div>  
+      </div> 
+
+      <div class="text-carousel">
+        <div class="carousel-track">
+          <span>Pacotes de dias dos namorados, até 40% de desconto em suites de casal, estadia com passagem inclusas, passeios especiais e um jantar à 2 conforme escolha. </span>
+          <span>Pacotes de dias dos namorados, até 40% de desconto em suites de casal, estadia com passagem inclusas, passeios especiais e um jantar à 2 conforme escolha. </span>
+         
+        </div>
+      </div>
+      
+    
+      <script src="script.js"></script>
+</body>
+</html>
